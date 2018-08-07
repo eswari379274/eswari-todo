@@ -1,0 +1,59 @@
+<div  [ngClass]="{'modal': true, 'show': show}" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <span *ngIf='isAddTask===true'>
+              Add Task
+            </span>
+            <span *ngIf='isAddTask===false && item.id '>
+              Edit Task Item
+            </span>
+             <span *ngIf='isAddTask===false && !item.id '>
+              Add Task Item
+            </span>
+            
+          </h4>
+          <button  (click) ='closeModal()' type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form (ngSubmit)="onSubmit()">
+            <div *ngIf='isAddTask===false' class="form-group">
+              <label for="name">Description <span class='text-danger'> * </span></label>
+              <input type="text" class="form-control" (keyup)='enableSubmit(item.desc)' [(ngModel)]="item.desc" name="desc" id="desc" required #desc="ngModel">              
+            </div>
+
+            <div *ngIf='isAddTask===true'  class="form-group">
+              <label for="alterEgo">Status <span class='text-danger'> * </span></label>
+              <input type="text" [(ngModel)]="task.status" class="form-control" name="status" (keyup)='enableSubmit(task.status)' id="status" #status="ngModel">              
+            </div>
+     
+            <div *ngIf='isAddTask===false'  class="form-group">
+              <label for="alterEgo">Comments</label>
+              <input type="text" [(ngModel)]="item.comments" class="form-control" name="comments" id="comments">
+            </div> 
+
+            <div *ngIf='isAddTask===false'  class="form-group">
+              <label for="alterEgo">Started On</label>
+              <input type="text" [(ngModel)]="item.started" class="form-control" name="started" id="started">
+            </div> 
+
+            <div *ngIf='isAddTask===false'  class="form-group">
+              <label for="alterEgo">Completed On</label>
+              <input type="text" [(ngModel)]="item.completed" class="form-control" name="completed" id="completed">
+            </div> 
+          </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+           <button type="submit" (click)='onSubmit()' [disabled]='isValid===false' class="btn btn-success">Submit</button>
+          <button type="button" (click) ='closeModal()' class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>        
+      </div>
+    </div>
+  </div>
+  

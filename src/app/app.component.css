@@ -1,0 +1,11 @@
+.header {	
+	
+	height: 5rem;
+	text-align: center;
+	color: green;
+}
+.container {
+	border: 1px solid green;
+	min-height: 40rem;
+}
+

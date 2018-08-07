@@ -1,0 +1,20 @@
+.list-item {
+	list-style-type: none;
+	border: 1px solid red;
+	width: 100%;
+	background: #fff;	
+	padding: 1rem;
+}
+.crud-icons-outer {
+	margin-top: 1rem;
+}
+.crud-icons {
+	padding: 0.6rem;
+}
+ul {
+	padding : 0;
+}
+.show {
+	display: block;
+	background-color: rgba(0,0,0,0.4)
+}
